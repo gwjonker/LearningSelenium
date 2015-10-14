@@ -1,3 +1,4 @@
+package executors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ public class StartFirefox {
 		System.out.println("Actual:   |" + actualTitle + "|");
 		
 		//driver.close();
-		System.exit(0);
+		//System.exit(0);
 	}
 	
 	
