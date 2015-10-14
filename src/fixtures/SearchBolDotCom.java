@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SearchGoogle {
+public class SearchBolDotCom {
 	
 	//Constructor / non-static
-	SearchGoogle() {
+	SearchBolDotCom() {
 		System.out.println("Instantiated SearchGoogle");
 	}
 	
@@ -36,7 +36,7 @@ public class SearchGoogle {
 	private static void setSearchText(WebDriver d, String searchText) {
 		// TODO Auto-generated method stub
 		
-		 WebElement searchField = d.findElement(By.id("q"));
+		 WebElement searchField = d.findElement(By.id("searchfor"));
 		 searchField.clear();
 		 searchField.sendKeys(searchText);
 	}	
@@ -44,22 +44,22 @@ public class SearchGoogle {
 	
 	//main program
 	public static void main(String[] args) {
-		final String appUrl 	= "http://www.google.com";
+		final String appUrl 	= "http://www.bol.com";
 		final String searchText = "automated testing";
 		
 		//Start Chrome
-		SearchGoogle s = new SearchGoogle();	
+		SearchBolDotCom s = new SearchBolDotCom();	
 		WebDriver d = s.StartChrome();
 		
 		//Go to URL
-		SearchGoogle.gotoUrl(d, appUrl);
+		SearchBolDotCom.gotoUrl(d, appUrl);
 		
 		//Get Title
-		String r = SearchGoogle.getTitle(d);
+		String r = SearchBolDotCom.getTitle(d);
 		System.out.println("Title: " + r);
 		
 		//setSearch text
-		SearchGoogle.setSearchText(d, searchText);
+		SearchBolDotCom.setSearchText(d, searchText);
 		
 		
 		
