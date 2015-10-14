@@ -1,6 +1,8 @@
 package fixtures;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SearchGoogle {
@@ -19,22 +21,31 @@ public class SearchGoogle {
 		return driver;
 	}
 	
-	static void gotoUrl(WebDriver d, String u) {
+	private static void gotoUrl(WebDriver d, String u) {
 		System.out.println("Go to URL: " + u);
 		d.get(u);
 	}
 	
 	
 	//static so can be called directly
-	static String getTitle(WebDriver d) {
+	private static String getTitle(WebDriver d) {
 		return d.getTitle();
 	}
 	
 	
+	private static void setSearchText(WebDriver d, String searchText) {
+		// TODO Auto-generated method stub
+		
+		 WebElement searchField = d.findElement(By.id("q"));
+		 searchField.clear();
+		 searchField.sendKeys(searchText);
+	}	
+	
 	
 	//main program
 	public static void main(String[] args) {
-		String appUrl = "https://accounts.google.com";
+		final String appUrl 	= "http://www.google.com";
+		final String searchText = "automated testing";
 		
 		//Start Chrome
 		SearchGoogle s = new SearchGoogle();	
@@ -47,11 +58,17 @@ public class SearchGoogle {
 		String r = SearchGoogle.getTitle(d);
 		System.out.println("Title: " + r);
 		
+		//setSearch text
+		SearchGoogle.setSearchText(d, searchText);
+		
+		
 		
 		//driver.close();
 		//System.exit(0);
 		
-	}	
+	}
+
+	
 		
 		
 }
